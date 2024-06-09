@@ -28,6 +28,7 @@ You will have to do the following steps:
 
 3. Open that file an change the following resources:
     * Resource `service_gh_repo` should have the full name of the Github Repo that you have created earlier. 
+    * Resource `ecr_repo` should have the name of the microservice
     * Resource `tf_workspace_ghsecret` should have the "plaintext value" to use the name of the microservice instead of the name of the template microservice.
 
 4. **Commit and Push**. <br>

@@ -47,3 +47,9 @@ The following files and resources need to be updated:
 ## 6. Move the Github Workflows
 The Github Workflows are under `aws/.github/workflows`. <br>
 You need to move the whole `.github` folder up one level. 
+
+## 7. Freeze
+Run a `pip freeze > requirements.txt` to generate the requirements file. 
+
+## 8. Commit and Push
+Commit and Push in the target environment, to run the Github Action.

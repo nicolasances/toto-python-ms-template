@@ -12,6 +12,7 @@ env:
   TF_WORKSPACE: ${{ secrets.TF_WORKSPACE }}
   TF_CONFIG_DIRECTORY: "./"
   IMAGE_TAG: ${{ github.sha }}
+  ECR_REPO: ${{ secrets.ECR_REPO }}
   TF_VAR_container_image_tag: "\"${{ github.sha }}\""
   TF_VAR_ecs_subnet_1: "\"${{ secrets.ECS_SUBNET_1 }}\""
   TF_VAR_ecs_subnet_2: "\"${{ secrets.ECS_SUBNET_2 }}\""
@@ -35,11 +36,6 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    - name: Create Environment Variables
-      run: |
-        export PACKAGE_NAME=$(cat package.json | grep name | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
-        echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1

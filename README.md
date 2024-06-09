@@ -32,3 +32,9 @@ Always run `which python` to make sure you're now using the version of python in
 
 ## 3. Deploy the Microservice
 * [Guide to Deploy on AWS ECS](./docs/aws/aws-ecs-guide.md)
+
+## 4. Troubleshooting and Known Errors
+### Error on urllib
+If you get the following error: 
+> ERROR: Cannot install -r requirements.txt (line 3) and urllib3==2.2.1 because these package versions have conflicting dependencies.
+Just remove urllib from `requirements.txt`

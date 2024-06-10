@@ -27,9 +27,12 @@ You will have to do the following steps:
 *For example, if you microservice is called `toto-ms-expenses` the file will have to be renamed `repo-toto-ms-expenses.tf`*.
 
 3. Open that file an change the following resources:
+    * Every resource's name should be changed by putting a custom prefix. Use your microservice name as a custom prefix. <br>
+    *E.g. If your service is called toto-ms-expenses, resource 'ecr_private_repo' should be renamed to 'toto_ms_expenses_ecr_private_repo'*
     * Resource `service_gh_repo` should have the full name of the Github Repo that you have created earlier. 
     * Resource `ecr_repo` should have the name of the microservice
     * Resource `tf_workspace_ghsecret` should have the "plaintext value" to use the name of the microservice instead of the name of the template microservice.
+    * Resource `ecr_repo` has a plaintext value referring to resource `ecr_private_repo`. Once you have changed the name of the resource, you need to change the reference in the plaintext value.
 
 4. **Commit and Push**. <br>
 That will trigger the Terraform plan and apply and will update your Microservice's Github Repo with the needed Secrets. 

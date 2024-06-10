@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "service_task_def" {
   container_definitions = jsonencode([
     {
       name      = local.toto_microservice_name
-      image     = format("%s.dkr.ecr.eu-west-1.amazonaws.com/aws-py-service:%s", var.aws_account_id, var.container_image_tag)
+      image     = format("%s.dkr.ecr.eu-west-1.amazonaws.com/%s:%s", var.aws_account_id, local.toto_microservice_name, var.container_image_tag)
       cpu       = 1024
       memory    = 2048
       essential = true
@@ -32,7 +32,7 @@ resource "aws_ecs_task_definition" "service_task_def" {
 # 2. Service
 ########################################################
 resource "aws_ecs_service" "service" {
-  name = "toto-py-service"
+  name = local.toto_microservice_name
   cluster = var.ecs_cluster_arn
   task_definition = aws_ecs_task_definition.service_task_def.arn
   desired_count = 1

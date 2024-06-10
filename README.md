@@ -33,6 +33,14 @@ Always run `which python` to make sure you're now using the version of python in
 ## 3. Deploy the Microservice
 * [Guide to Deploy on AWS ECS](./docs/aws/aws-ecs-guide.md)
 
+## 4. Test that it works
+To test this, use Postman, and call with the following paramters:
+* HTTP Method: **`GET`**
+* URL: **https://<configured API domain>/**
+* Headers: 
+    * `toto-service`: <name of your microservice> (e.g. toto-ms-expenses)
+
+
 ## 4. Troubleshooting and Known Errors
 ### Error on urllib
 If you get the following error: 

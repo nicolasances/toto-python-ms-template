@@ -112,7 +112,7 @@ resource "github_actions_environment_secret" "aws_secret_access_key_ghsecret" {
     secret_name = "AWS_SECRET_ACCESS_KEY"
     plaintext_value = var.aws_secret_access_key
 }
-resource "github_actions_environment_secret" "toto_py_test_aws_account_id_ghsecret" {
+resource "github_actions_environment_secret" "aws_account_id_ghsecret" {
     repository = data.github_repository.service_gh_repo.name
     environment = var.toto_environment
     secret_name = "aws_account_id"
@@ -122,11 +122,15 @@ resource "github_actions_environment_secret" "toto_py_test_aws_account_id_ghsecr
 ########################################################
 # 1.8. ECR
 ########################################################
+resource "aws_ecr_repository" "ecr_private_repo" {
+  name = "toto-py-test"
+}
 resource "github_actions_environment_secret" "ecr_repo" {
     repository = data.github_repository.service_gh_repo.name
     environment = var.toto_environment
     secret_name = "ECR_REPO"
     plaintext_value = "toto-python-ms-template"
+    plaintext_value = aws_ecr_repository.ecr_private_repo.name  # Fix this reference when changing the name of resource ecr_private_repo
 }
 ########################################################
 # 1.9. Terraform API Token

@@ -129,7 +129,6 @@ resource "github_actions_environment_secret" "ecr_repo" {
     repository = data.github_repository.service_gh_repo.name
     environment = var.toto_environment
     secret_name = "ECR_REPO"
-    plaintext_value = "toto-python-ms-template"
     plaintext_value = aws_ecr_repository.ecr_private_repo.name  # Fix this reference when changing the name of resource ecr_private_repo
 }
 ########################################################

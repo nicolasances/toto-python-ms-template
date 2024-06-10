@@ -112,6 +112,12 @@ resource "github_actions_environment_secret" "aws_secret_access_key_ghsecret" {
     secret_name = "AWS_SECRET_ACCESS_KEY"
     plaintext_value = var.aws_secret_access_key
 }
+resource "github_actions_environment_secret" "toto_py_test_aws_account_id_ghsecret" {
+    repository = data.github_repository.service_gh_repo.name
+    environment = var.toto_environment
+    secret_name = "aws_account_id"
+    plaintext_value = var.aws_account_id
+}
 
 ########################################################
 # 1.8. ECR

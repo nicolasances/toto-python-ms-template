@@ -123,7 +123,7 @@ resource "github_actions_environment_secret" "aws_account_id_ghsecret" {
 # 1.8. ECR
 ########################################################
 resource "aws_ecr_repository" "ecr_private_repo" {
-  name = "toto-py-test"
+  name = format("toto-py-test-%s", var.toto_environment)
 }
 resource "github_actions_environment_secret" "ecr_repo" {
     repository = data.github_repository.service_gh_repo.name

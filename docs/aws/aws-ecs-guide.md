@@ -4,6 +4,9 @@ This Guide will help you use this template project to create, build and deploy a
 
 In general, you can find a general description of Toto AWS Architecture in the [Toto Documentation Repository](https://github.com/nicolasances/toto). 
 
+Additional guides and notes:
+ * [How to Connect AWS to GCP](./connecting-aws-to-gcp.md), documents how we make sure we can connect from AWS to GCP, allowing services running on AWS to consume resources (like GCS) on GCP.
+
 ## 1. Create a Github Repository
 Before doing anything, you need to create a Github Repository for your Microservice.
 

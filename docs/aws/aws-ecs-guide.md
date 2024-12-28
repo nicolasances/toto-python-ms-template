@@ -37,7 +37,7 @@ You will have to do the following steps:
     * Resource `tf_workspace_ghsecret` should have the "plaintext value" to use the name of the microservice instead of the name of the template microservice.
     * Resource `ecr_repo` has a plaintext value referring to resource `ecr_private_repo`. Once you have changed the name of the resource, you need to change the reference in the plaintext value.
 
-4. In the github worfklow, change the name of the Environment Variable called `PACKAGE_NAME` to the name of the microservice. <br>
+4. In the github worfklow, change the name of the Environment Variable called `SERVICE_NAME` to the name of the microservice. <br>
 The default is `toto-python-ms-template` and if your service is called `toto-ms-invoices` use the latter instead.
 
 5. **Commit and Push**. <br>

@@ -50,9 +50,11 @@ Once that is done, you can safely **delete** the folder `toto-aws-terra` in your
 The folder under `aws/terraform` contains all the needed Terraform resources to setup this Microservice on AWS. <br>
 All other folders that contain Terraform files can be deleted
 
-## 5. Update the Terraform resources
+## 5. Update the Terraform resources & move the Terraform folder
 The following files and resources need to be updated: 
 * `aws/terraform/locals.tf`: you should change the `toto_microservice_name` value to your Microservice name
+
+Move the `terraform` folder on level up (under the project's root).
 
 ## 6. Move the Github Workflows
 The Github Workflows are under `aws/.github/workflows`. <br>

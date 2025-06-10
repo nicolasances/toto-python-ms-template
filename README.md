@@ -32,6 +32,7 @@ Always run `which python` to make sure you're now using the version of python in
 
 ## 3. Deploy the Microservice
 * [Guide to Deploy on AWS ECS](./docs/aws/aws-ecs-guide.md)
+* [Guide to Deploy on GCP Cloud Run](./docs/gcp/config-gcp.md)
 
 ## 4. Test that it works
 To test this, use Postman, and call with the following paramters:

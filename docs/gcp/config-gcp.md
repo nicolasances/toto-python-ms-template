@@ -16,5 +16,18 @@ Make sure you have executed the steps that clone the repo.
 
 At this point you have a working service locally and terraform has created the necessary infrastructure and github secrets. 
 
-## 4. Push
+## 4. Config file
+* In the class `Config` make sure to specify GCP as the cloud provider
+
+```
+@singleton
+class Config(TotoConfig): 
+    
+    def __init__(self):
+        super().__init__(cloud_provider=CloudProvider.GCP)
+        
+        self.logger.log("INIT", "Configuration loaded!")
+```
+
+## 5. Push
 Commit your service and push it to Github. 

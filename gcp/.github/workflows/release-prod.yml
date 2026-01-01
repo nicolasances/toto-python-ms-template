@@ -1,10 +1,9 @@
-name: Dev Release
+name: Prod Release
 
 on:
   push:
     branches: 
-      - 'feature/**'
-      - main
+      - 'release/**'
 
 env:
   SERVICE_NAME: 'toto-ms-ex1'
@@ -14,8 +13,8 @@ env:
 jobs:
   # This workflow contains a single job called "release"
   release:
-    name: Dev Build & Deploy to GCP
-    environment: totoexperiments
+    name: Prod Build & Deploy to GCP
+    environment: totolive
     runs-on: ubuntu-latest
 
     steps:
@@ -45,4 +44,4 @@ jobs:
     
     - name: Deploy image
       run: | 
-        gcloud run deploy ${{env.SERVICE_NAME}} --set-env-vars "HYPERSCALER=gcp,GCP_PID=${{ vars.GCP_PID }},BACKUP_BUCKET=${{ secrets.BACKUP_BUCKET }}" --service-account=${{ secrets.SERVICE_ACCOUNT }} --project=${{ vars.GCP_PID }} --image=europe-west1-docker.pkg.dev/${{ vars.GCP_PID }}/${{env.SERVICE_NAME}}/${{env.SERVICE_NAME}}:${{env.SERVICE_VERSION}} --platform=managed --region=europe-west1 --allow-unauthenticated --memory=1Gi 
+        gcloud run deploy ${{env.SERVICE_NAME}} --set-env-vars "HYPERSCALER=aws,GCP_PID=${{ vars.GCP_PID }},BACKUP_BUCKET=${{ secrets.BACKUP_BUCKET }}" --service-account=${{ secrets.SERVICE_ACCOUNT }} --project=${{ vars.GCP_PID }} --image=europe-west1-docker.pkg.dev/${{ vars.GCP_PID }}/${{env.SERVICE_NAME}}/${{env.SERVICE_NAME}}:${{env.SERVICE_VERSION}} --platform=managed --region=europe-west1 --allow-unauthenticated --memory=1Gi 

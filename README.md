@@ -20,8 +20,7 @@ git remote rm origin
 ```
 
 ## 2. Create the Microservice
-Use Toto API Controller to create your microservice skeleton. <br>
-Follow the instructions in this repo: https://github.com/nicolasances/py-toto-api-controller.
+Follow the instructions at the [Toto Microservice SDK repository](https://github.com/nicolasances/toto-microservice-sdk). 
 
 Remember, before doing anything, to **create a Python Virtual Environment**!
 ```

@@ -24,8 +24,13 @@ Follow the instructions at the [Toto Microservice SDK repository](https://github
 
 Remember, before doing anything, to **create a Python Virtual Environment**!
 ```
-python3 -m venv .venv 
+python -m venv .venv 
 source .venv/bin/activate.
+```
+For Windows: 
+```
+python -m venv .venv 
+.\.venv\Scripts\activate.ps
 ```
 Always run `which python` to make sure you're now using the version of python in the venv.
 
